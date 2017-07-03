@@ -43,6 +43,9 @@ for i = 1:tests
         
     end
     
+    sysout = docNode.createElement('system-out');
+    sysout.appendChild(docNode.createTextNode(str));
+    testcase.appendChild(sysout);
     testcases{i} = testcase;
 end
 
