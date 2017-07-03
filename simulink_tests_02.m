@@ -58,7 +58,6 @@ for i = 1:tests
     
     check = checks{i};
     
-    testcase.setAttribute('id', sprintf('%d',i));
     testcase.setAttribute('classname', check.ID);
     testcase.setAttribute('name', check.Title);
     
