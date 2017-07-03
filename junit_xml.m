@@ -33,7 +33,6 @@ testcase.appendChild(failure);
 
 sysout = docNode.createElement('system-out'); 
 sysout.appendChild(docNode.createTextNode(''));
-
 testcase.appendChild(sysout)
 
 syserr = docNode.createElement('system-err'); 
@@ -41,9 +40,6 @@ syserr.appendChild(docNode.createTextNode(''));
 testcase.appendChild(syserr)
 
 testsuite.appendChild(testcase);
-
-
-
 docRootNode.appendChild(testsuite);
 
 xmlFileName = [tempname,'.xml'];
