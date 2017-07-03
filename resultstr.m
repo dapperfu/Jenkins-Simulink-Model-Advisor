@@ -12,11 +12,13 @@ function str = resultstr(result)
 %	str - string.
 %
 % Example:
-%	output1 = resultstr(input1)
+%   ma = Simulink.ModelAdvisor.getModelAdvisor(bdroot);
+%   ma.run;
+%   str = resultstr(ma.CheckCellArray{1}.Result)
 %
 % See also: 
 
-% Author: C3038028
+% Author: Jed Frey
 % Email :
 % July 2017
 
