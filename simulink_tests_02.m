@@ -49,8 +49,8 @@ properties = docNode.createElement('properties');
 property = docNode.createElement('property'); 
 property.setAttribute('name', 'ModelName'); 
 property.setAttribute('value', ma.ModelName);
-properties.appendChild(property)
-testsuite.appendChild(properties)
+properties.appendChild(property);
+testsuite.appendChild(properties);
 
 testcases = cell(1, tests);
 for i = 1:tests
