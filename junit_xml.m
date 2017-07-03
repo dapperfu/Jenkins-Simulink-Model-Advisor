@@ -35,6 +35,7 @@ for i = 1:tests
     test = checks{i};
     
     testcase.setAttribute('classname', test.ID);
+    testcase.setAttribute('name', test.Title);
 
     testcase.setAttribute('time', '0.1');
 
