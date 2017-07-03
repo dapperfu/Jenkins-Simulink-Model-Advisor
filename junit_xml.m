@@ -32,8 +32,7 @@ testsuite.setAttribute('timestamp',strrep(datestr(now, 31), ' ', 'T'));
 
 properties = docNode.createElement('properties'); 
 property = docNode.createElement('property'); 
-property.setAttribute('name', 'java.vendor'); 
-property.setAttribute('value', 'Sun MicroSystems Inc.');
+property.setAttribute('ModelName', ma.ModelName);
 properties.appendChild(property)
 testsuite.appendChild(properties)
 
