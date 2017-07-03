@@ -9,10 +9,12 @@ docNode = com.mathworks.xml.XMLUtils.createDocument('testsuites');
 docRootNode = docNode.getDocumentElement;
 %%
 testsuite = docNode.createElement('testsuite'); 
+
+testsuite.setAttribute('tests', sprintf('%d', tests));
+testsuite.setAttribute('failures', sprintf('%d', failures));
+
 testsuite.setAttribute('errors','0');
-testsuite.setAttribute('failures','1');
 testsuite.setAttribute('package','Simulink Model Advisor');
-testsuite.setAttribute('tests','1');
 testsuite.setAttribute('time','0.1');
 testsuite.setAttribute('id','0');
 testsuite.setAttribute('name','ts_name');
