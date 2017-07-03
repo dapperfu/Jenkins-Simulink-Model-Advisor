@@ -69,7 +69,7 @@ for i = 1:tests
     
     result_str = resultstr(check.result);
     result_node = docNode.createTextNode(result_str);
-    if test.status
+    if check.status
         sysout = docNode.createElement('system-out');
         sysout.appendChild(result_node);
         testcase.appendChild(sysout);
