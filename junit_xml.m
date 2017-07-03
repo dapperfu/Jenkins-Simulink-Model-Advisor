@@ -4,7 +4,7 @@ docRootNode = docNode.getDocumentElement;
 testsuite = docNode.createElement('testsuite'); 
 testsuite.setAttribute('errors','0');
 testsuite.setAttribute('failures','1');
-testsuite.setAttribute('package','This Package');
+testsuite.setAttribute('package','Simulink Model Advisor');
 testsuite.setAttribute('tests','1');
 testsuite.setAttribute('time','0.1');
 testsuite.setAttribute('id','0');
@@ -13,14 +13,13 @@ testsuite.setAttribute('name','ts_name');
 [id, hostname] = system('hostname');
 testsuite.setAttribute('hostname', hostname);
 testsuite.setAttribute('timestamp',strrep(datestr(now, 31), ' ', 'T'));
-% 
+
 % properties = docNode.createElement('properties'); 
 % property = docNode.createElement('property'); 
 % property.setAttribute('name', 'java.vendor'); 
 % property.setAttribute('value', 'Sun MicroSystems Inc.');
-
-properties.appendChild(property)
-testsuite.appendChild(properties)
+% properties.appendChild(property)
+% testsuite.appendChild(properties)
 
 testcase = docNode.createElement('testcase'); 
 testcase.setAttribute('classname', 'ExampleTest');
@@ -29,7 +28,7 @@ testcase.setAttribute('time', '0.1');
 
 failure = docNode.createElement('failure'); 
 failure.setAttribute('type', 'VerificationFailure');
-failure.appendChild(docNode.createTextNode('Failure Reason'))
+failure.appendChild(docNode.createTextNode('Failure Reason'));
 
 testcase.appendChild(failure);
 
