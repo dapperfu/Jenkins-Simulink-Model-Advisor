@@ -1,10 +1,15 @@
 pipeline {
     agent any 
     stages {
+        stage('CheckOut') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '32b0d8fb-c3d8-498f-a3db-fa8cb7698a64', url: 'git@github.com:jed-frey/SimulinkModelAdvisor_unittest.git']]])
+            }
+        }
         stage('Test') { 
             steps { 
-                sh 'run_tests_02.bat' 
-                junit 'run_test_02.xml'
+                bat returnStdout: true, script: 'run_tests_02'
+                junit keepLongStdio: true, testDataPublishers: [[$class: 'TestDataPublisher']], testResults: 'run_test_02.xml'
             }
         }
     }
