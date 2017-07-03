@@ -23,14 +23,12 @@ for i = 1:n_checks
     checks_out{1, i} = check_data;
 end
 
-
-
 % 
 % 
 % 
 %%
-tests = numel(n_checks);
-successes = sum(cellfun(@(check) check.Success, checks));
+tests = (n_checks);
+successes = sum(cellfun(@(check) check.status, checks_out));
 failures  = tests - successes;
 %%
 docNode = com.mathworks.xml.XMLUtils.createDocument('testsuites');
