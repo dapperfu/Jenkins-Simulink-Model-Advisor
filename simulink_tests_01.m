@@ -7,6 +7,13 @@ checks =  ma.CheckCellArray;
 for i=1:numel(checks)
     check = checks{i};
     if ~check.Success
-        fprintf('%s\n',check.Result)
+        if iscell(check.Result)
+            for j = 1:numel(check.Result)
+               fprintf('%02d: %s\n',j,check.Result{j}); 
+            end
+        else
+            fprintf('%s\n',check.Result)
+            
+        end
     end
 end
