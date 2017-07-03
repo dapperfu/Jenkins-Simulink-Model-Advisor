@@ -17,7 +17,7 @@ pipeline {
             steps { 
                 bat returnStdout: true, script: 'simulink_tests_02'
                 archiveArtifacts '*.log, *.xml'
-                junit keepLongStdio: true, testDataPublishers: [[$class: 'TestDataPublisher']], testResults: '*.xml'
+                junit keepLongStdio: true, testDataPublishers: [[$class: 'TestDataPublisher']], testResults: 'embedded_coder_fixedstep_multirate.xml'
             }
         }
     }
