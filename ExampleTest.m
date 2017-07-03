@@ -6,8 +6,8 @@ classdef ExampleTest < matlab.unittest.TestCase
         function testTwo(testCase)  % Test passes
             testCase.verifyEqual(5,5,'Testing 5==5')
         end
-        function testThree(testCase) % Test fails
-            testCase.assumeTrue(false)
+        function testThree(testCase) % Test passes
+            testCase.assumeTrue(true)
         end
     end
 end
