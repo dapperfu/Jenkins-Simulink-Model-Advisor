@@ -16,7 +16,7 @@ function str = resultstr(result)
 %   ma.run;
 %   str = resultstr(ma.CheckCellArray{1}.Result)
 %
-% See also: 
+% See also:
 
 % Author: Jed Frey
 % Email :
@@ -36,7 +36,13 @@ end
 
 switch class(result)
     case 'ModelAdvisor.FormatTemplate'
-        str = sprintf('%s: %s', result.SubResultStatus, result.SubResultStatusText.Content);
+        try
+            str = sprintf('%s: %s', result.SubResultStatus, result.SubResultStatusText.Content);
+        catch
+            str = '';
+        end
+    case 'ModelAdvisor.Text'
+        str = result.Content;
     case 'cell'
         str = result{1};
         if isnumeric(str) && isempty(str)
