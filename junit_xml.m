@@ -84,7 +84,6 @@ for i = 1:tests
     testcases{i} = testcase;
 end
 
-
 for i = 1:tests
     testsuite.appendChild(testcases{i});
 end
