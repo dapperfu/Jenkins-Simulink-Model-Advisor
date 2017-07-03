@@ -15,5 +15,7 @@ n_checks = numel(checks);
 %%
 for i = 1:n_checks
     check = checks{i};
-    
+    tic
+    ma.runCheck
+    duration = 
 end
