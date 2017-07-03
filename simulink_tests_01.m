@@ -6,9 +6,8 @@ ma.run;
 checks =  ma.CheckCellArray;
 
 tests = numel(checks);
-
-
-
+successes = sum(cellfun(@(check) check.Success, checks));
+failures  = tests - successes;
 
 %%
 for i=1:numel(checks)
