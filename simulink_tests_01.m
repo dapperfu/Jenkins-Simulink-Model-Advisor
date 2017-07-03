@@ -4,6 +4,13 @@ ma = Simulink.ModelAdvisor.getModelAdvisor(model);
 ma.run;
 %%
 checks =  ma.CheckCellArray;
+
+tests = numel(checks);
+
+
+
+
+%%
 for i=1:numel(checks)
     check = checks{i};
     results = check.Result;
