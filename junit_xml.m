@@ -10,12 +10,12 @@ testsuite.setAttribute('time','0.1');
 testsuite.setAttribute('id','0');
 testsuite.setAttribute('name','ts_name');
 testsuite.setAttribute('hostname','THISHOST');
-testsuite.setAttribute('timestamp','2013-05-24T10:23:58');
-
-properties = docNode.createElement('properties'); 
-property = docNode.createElement('property'); 
-property.setAttribute('name', 'java.vendor'); 
-property.setAttribute('value', 'Sun MicroSystems Inc.');
+testsuite.setAttribute('timestamp',strrep(datestr(now, 31), ' ', 'T'));
+% 
+% properties = docNode.createElement('properties'); 
+% property = docNode.createElement('property'); 
+% property.setAttribute('name', 'java.vendor'); 
+% property.setAttribute('value', 'Sun MicroSystems Inc.');
 
 properties.appendChild(property)
 testsuite.appendChild(properties)
