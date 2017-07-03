@@ -34,6 +34,15 @@ if numel(result)>1
     return;
 end
 
+switch class(result)
+    case 'ModelAdvisor.FormatTemplate'
+        
+   
+    otherwise
+        error(class(result))
+end
+    
+
 str = result{1};
 if isnumeric(str) && isempty(str)
    str = ''; 
