@@ -61,12 +61,12 @@ testcases = cell(1, tests);
 for i = 1:tests
     testcase = docNode.createElement('testcase'); 
     
-    test = checks{i};
+    check = checks_out{i};
     testcase.setAttribute('id', sprintf('%d',i));
-    testcase.setAttribute('classname', test.ID);
-    testcase.setAttribute('name', test.Title);
+    testcase.setAttribute('classname', check.obj.ID);
+    testcase.setAttribute('name', check.obj.Title);
     
-    result_str = resultstr(test.Result);
+    result_str = resultstr(check.Result);
     result_node = docNode.createTextNode(result_str);
     if test.Success
         sysout = docNode.createElement('system-out');
@@ -81,7 +81,6 @@ for i = 1:tests
         failure.appendChild(result_node);
         testcase.appendChild(failure);
     end
-    %%
     testcases{i} = testcase;
 end
 
