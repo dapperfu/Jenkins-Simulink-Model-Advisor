@@ -4,3 +4,4 @@ ma = Simulink.ModelAdvisor.getModelAdvisor(model);
 ma.run;
 mkdir('report');
 ma.exportReport('report/report.html');
+ma.ResultGUI;
