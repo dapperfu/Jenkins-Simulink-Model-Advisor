@@ -42,10 +42,11 @@ for i = 1:tests
     else
         
     end
-    
+    %%
     sysout = docNode.createElement('system-out');
-    sysout.appendChild(docNode.createTextNode(str));
+    sysout.appendChild(docNode.createTextNode(resultstr(test.Result)));
     testcase.appendChild(sysout);
+    %%
     testcases{i} = testcase;
 end
 
