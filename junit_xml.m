@@ -1,4 +1,4 @@
-function hjunit_xml(checks)
+function junit_xml(checks)
 
 %%
 tests = numel(checks);
@@ -20,8 +20,7 @@ testsuite.setAttribute('time','0.1');
 testsuite.setAttribute('package','Simulink Model Advisor');
 testsuite.setAttribute('name','Simulink Model Advisor');
 
-[id, hostname] = system('hostname');
-testsuite.setAttribute('hostname', hostname);
+testsuite.setAttribute('hostname', getenv('COMPUTERNAME'));
 testsuite.setAttribute('timestamp',strrep(datestr(now, 31), ' ', 'T'));
 
 % properties = docNode.createElement('properties'); 
