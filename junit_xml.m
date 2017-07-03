@@ -1,15 +1,13 @@
 function junit_xml(ma)
 
+narginchk(0, 1);
+
 if nargin == 0
    ma = Simulink.ModelAdvisor.getModelAdvisor(bdroot); 
-elseif nargin ==1
-    
-   
-else
-    error('
 end
 
 
+checks = ma.CheckCellArray;
 %%
 tests = numel(checks);
 successes = sum(cellfun(@(check) check.Success, checks));
@@ -32,12 +30,12 @@ testsuite.setAttribute('name','Simulink Model Advisor');
 testsuite.setAttribute('hostname', getenv('COMPUTERNAME'));
 testsuite.setAttribute('timestamp',strrep(datestr(now, 31), ' ', 'T'));
 
-% properties = docNode.createElement('properties'); 
-% property = docNode.createElement('property'); 
-% property.setAttribute('name', 'java.vendor'); 
-% property.setAttribute('value', 'Sun MicroSystems Inc.');
-% properties.appendChild(property)
-% testsuite.appendChild(properties)
+properties = docNode.createElement('properties'); 
+property = docNode.createElement('property'); 
+property.setAttribute('name', 'java.vendor'); 
+property.setAttribute('value', 'Sun MicroSystems Inc.');
+properties.appendChild(property)
+testsuite.appendChild(properties)
 
 testcases = cell(1, tests);
 for i = 1:tests
