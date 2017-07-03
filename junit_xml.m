@@ -30,6 +30,9 @@ end
 tests = (n_checks);
 successes = sum(cellfun(@(check) check.status, checks_out));
 failures  = tests - successes;
+
+duration = sprintf('%.2f', sum(cellfun(@(check) check.duration, checks_out)));
+
 %%
 docNode = com.mathworks.xml.XMLUtils.createDocument('testsuites');
 docRootNode = docNode.getDocumentElement;
@@ -41,7 +44,7 @@ testsuite.setAttribute('failures', sprintf('%d', failures));
 testsuite.setAttribute('errors','0');
 
 testsuite.setAttribute('id','0');
-testsuite.setAttribute('time','0.1');
+testsuite.setAttribute('time',duration);
 testsuite.setAttribute('package','Simulink Model Advisor');
 testsuite.setAttribute('name','Simulink Model Advisor');
 
