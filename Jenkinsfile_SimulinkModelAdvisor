@@ -9,15 +9,16 @@ pipeline {
         stage('Simulink MA Check 1') {
             steps {
                 bat returnStdout: true, script: 'simulink_tests_01'
-                archiveArtifacts '*.log, results/*'
+                archiveArtifacts '*.log, report/*'
                 publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report', reportFiles: 'report.html', reportName: 'HTML Report', reportTitles: ''])
             }
         }
         stage('Simulink MA Check 2') { 
             steps { 
                 bat returnStdout: true, script: 'simulink_tests_02'
-                junit keepLongStdio: true, testDataPublishers: [[$class: 'TestDataPublisher']], testResults: 'embedded_coder_fixedstep_multirate.xml'
                 archiveArtifacts '*.log, *.xml'
+                junit keepLongStdio: true, testDataPublishers: [[$class: 'TestDataPublisher']], testResults: 'embedded_coder_fixedstep_multirate.xml'
+                
             }
         }
     }
