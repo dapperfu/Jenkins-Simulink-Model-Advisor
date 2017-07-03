@@ -44,7 +44,6 @@ end
 for i = 1:tests
     testsuite.appendChild(testcases{i});
 end
-    
 %     testcase.setAttribute('classname', test.ID);
 %     
 % 
