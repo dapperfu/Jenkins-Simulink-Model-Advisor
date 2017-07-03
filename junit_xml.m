@@ -1,5 +1,10 @@
 function junit_xml(ma)
 
+if nargin == 0
+   ma = Simulink.ModelAdvisor.getModelAdvisor(bdroot); 
+end
+
+
 %%
 tests = numel(checks);
 successes = sum(cellfun(@(check) check.Success, checks));
