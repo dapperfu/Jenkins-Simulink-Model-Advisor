@@ -41,8 +41,9 @@ for i = 1:tests
     testcase = docNode.createElement('testcase'); 
     
     test = checks{i};
+    testcase.setAttribute('id', sprintf('%d',i));
     testcase.setAttribute('classname', test.ID);
-    testcase.setAttribute('name', test.Title);   
+    testcase.setAttribute('name', test.Title);
     
     result_str = resultstr(test.Result);
     result_node = docNode.createTextNode(result_str);
@@ -95,6 +96,6 @@ end
 
 docRootNode.appendChild(testsuite);
 
-% xmlFileName = [tempname,'.xml'];
-% xmlwrite(xmlFileName,docNode);
-% type(xmlFileName);
+xmlFileName = [tempname,'.xml'];
+xmlwrite(xmlFileName,docNode);
+type(xmlFileName);
