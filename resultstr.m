@@ -42,7 +42,7 @@ switch class(result)
             case 'ModelAdvisor.Text'
                 str = sprintf('%s: %s', result.SubResultStatus, result.SubResultStatusText.Content);
             otherwise
-                error(class(result))
+                error(class(result.SubResultStatusText))
         end
     case 'ModelAdvisor.Text'
         str = result.Content;
