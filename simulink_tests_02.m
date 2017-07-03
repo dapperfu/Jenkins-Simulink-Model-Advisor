@@ -61,6 +61,9 @@ for i = 1:tests
     testcase.setAttribute('classname', check.ID);
     testcase.setAttribute('name', check.Title);
     
+    testcase.setAttribute('timestamp',strrep(datestr(now, 31), ' ', 'T'));
+
+    
     result_str = resultstr(check.result);
     result_node = docNode.createTextNode(result_str);
     if check.Success
