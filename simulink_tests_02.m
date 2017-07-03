@@ -69,7 +69,7 @@ for i = 1:tests
     if check.Success
         sysout = docNode.createElement('system-out');
         sysout.appendChild(result_node);
-        testcase.appendChild(sysout);
+        %testcase.appendChild(sysout);
     elseif isempty(check.Result)
         skipped = docNode.createElement('skipped');
         testcase.appendChild(skipped);        
@@ -86,7 +86,7 @@ end
 for i = 1:tests
     testsuite.appendChild(testcases{i});
 end
-w
+
 docRootNode.appendChild(testsuite);
 
 xmlFileName = [model,'.xml'];
