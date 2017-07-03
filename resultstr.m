@@ -27,8 +27,9 @@ str = '';
 if numel(result)>1
     str_cell = {};
     for i = 1:numel(result)
-        str_cell = [str_cell resultstr(result{1})];
+        str_cell = [str_cell resultstr(result{i})];
     end
+    str = strjoin(str_cell, '\n');
     return;
 end
 
