@@ -8,3 +8,6 @@ group_checks = cellfun(@(group) ma.getCheckForGroup(group), groups, 'UniformOutp
 
 tasks  = ma.getTaskAll;
 task_checks = cellfun(@(task) ma.getCheckForTask(task), tasks, 'UniformOutput', false);
+
+n_group_checks = cellfun(@(checks) numel(checks), group_checks);
+n_task_checks = cellfun(@(checks) numel(checks), task_checks);
