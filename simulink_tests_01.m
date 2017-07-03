@@ -17,10 +17,9 @@ for i=1:numel(checks)
                             fprintf('%s\n',result.SubResultStatusText.Content)
                         case 'cell'
                             if ~isempty(result{1})
-                                
                                 pat = '<[^>]*>';
                                 str = regexprep(result{1}, pat, '');
-                                fprintf('%02d: %s\n',j,str);
+                                fprintf('%s\n',str);
                             end
                         otherwise
                             fprintf('Unknown Result Class: %s\n',class(results));
