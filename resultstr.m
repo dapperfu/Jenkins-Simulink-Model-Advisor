@@ -25,9 +25,10 @@ function str = resultstr(result)
 %------------- BEGIN CODE --------------
 str = '';
 if numel(result)>1
-    str_cell = {};
-    for i = 1:numel(result)
-        str_cell = [str_cell resultstr(result{i})];
+    n = numel(result);
+    str_cell = cell(1,n);
+    for i = 1:n
+        str_cell{i} = feval(mfilename, result{i});
     end
     str = strjoin(str_cell, '\n');
     return;
