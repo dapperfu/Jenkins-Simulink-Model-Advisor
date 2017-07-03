@@ -2,6 +2,11 @@ function junit_xml(ma)
 
 if nargin == 0
    ma = Simulink.ModelAdvisor.getModelAdvisor(bdroot); 
+elseif nargin ==1
+    
+   
+else
+    error('
 end
 
 
