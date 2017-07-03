@@ -8,20 +8,20 @@ end
 checks = ma.getCheckAll;
 
 n_checks = numel(checks);
-checks_out=cell(1, n_checks);
+checks_data=cell(1, n_checks);
 for i = 1:n_checks
-    check=struct();
-    check.id = checks{i};
-    fprintf('Running Check: %s\n',check.id);
+    check_data=struct();
+    check_data.id = checks{i};
+    fprintf('Running Check: %s\n',check_data.id);
     tic
-    ma.runCheck(check.id);
+    ma.runCheck(check_data.id);
     check_data.duration=toc;
-    check_data.obj = ma.getCheckObj(check.id);
-    check_data.result = ma.getCheckResult(check.id);
-    check_data.result_data = ma.getCheckResultData(check.id);
-    check_data.status = ma.getCheckResultStatus(check.id);
+    check_data.obj = ma.getCheckObj(check_data.id);
+    check_data.result = ma.getCheckResult(check_data.id);
+    check_data.result_data = ma.getCheckResultData(check_data.id);
+    check_data.status = ma.getCheckResultStatus(check_data.id);
     
-    checks_out{1, i} = check_data;
+    checks_data{1, i} = check_data;
 end
 
 % 
@@ -29,10 +29,10 @@ end
 % 
 %%
 tests = (n_checks);
-successes = sum(cellfun(@(check) check.status, checks_out));
+successes = sum(cellfun(@(check) check.status, checks_data));
 failures  = tests - successes;
 
-duration = sprintf('%.2f', sum(cellfun(@(check) check.duration, checks_out)));
+duration = sprintf('%.2f', sum(cellfun(@(check) check.duration, checks_data)));
 
 %%
 docNode = com.mathworks.xml.XMLUtils.createDocument('testsuites');
@@ -62,7 +62,7 @@ testcases = cell(1, tests);
 for i = 1:tests
     testcase = docNode.createElement('testcase'); 
     
-    check = checks_out{i};
+    check = checks_data{i};
     
     testcase.setAttribute('id', sprintf('%d',i));
     testcase.setAttribute('classname', check.obj.ID);
