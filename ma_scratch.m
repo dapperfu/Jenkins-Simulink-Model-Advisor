@@ -15,14 +15,18 @@ n_checks = numel(checks);
 %%
 checks_out=cell(1, n_checks);
 for i = 1:n_checks
+    check_data=struct();
+    
     check = checks{i};
     tic
     ma.runCheck(check)
     duration = toc;
     
-    check_data=struct();
+    check_data.duration
     check_data.obj = ma.getCheckObj(check);
     check_data.result = ma.getCheckResult(check);
+    check_data.result_data = ma.getCheckResultData(check);
+    check_data.status = ma.getCheckResultStatus(check);
     
     
     break
