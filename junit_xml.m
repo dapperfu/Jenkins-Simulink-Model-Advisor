@@ -35,7 +35,13 @@ for i = 1:tests
     
     test = checks{i};
     testcase.setAttribute('classname', test.ID);
-    testcase.setAttribute('name', test.Title);    
+    testcase.setAttribute('name', test.Title);   
+    
+    if test.Success
+        
+    else
+        
+    end
     
     testcases{i} = testcase;
 end
