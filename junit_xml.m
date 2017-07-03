@@ -1,6 +1,7 @@
+function docNode = junit_xml(checks)
+
 docNode = com.mathworks.xml.XMLUtils.createDocument('testsuites');
 docRootNode = docNode.getDocumentElement;
-
 
 testsuite = docNode.createElement('testsuite'); 
 testsuite.setAttribute('errors','0');
