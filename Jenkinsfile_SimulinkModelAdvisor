@@ -10,6 +10,7 @@ pipeline {
             steps {
                 bat returnStdout: true, script: 'simulink_tests_01'
                 archiveArtifacts '*.log, results/*'
+                publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report', reportFiles: 'report.html', reportName: 'HTML Report', reportTitles: ''])
             }
         }
         stage('Simulink MA Check 2') { 
