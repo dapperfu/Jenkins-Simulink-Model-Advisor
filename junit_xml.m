@@ -31,17 +31,22 @@ testsuite.setAttribute('timestamp',strrep(datestr(now, 31), ' ', 'T'));
 
 testcases = cell(1, tests);
 for i = 1:tests
-    testcases{i} = docNode.createElement('testcase'); 
+    testcase = docNode.createElement('testcase'); 
+    
+    test = checks{i};
+    testcase.setAttribute('classname', test.ID);
+    testcase.setAttribute('name', test.Title);    
+    
+    testcases{i} = testcase;
 end
 
 
 for i = 1:tests
     testsuite.appendChild(testcases{i});
 end
-    test = checks{i};
     
 %     testcase.setAttribute('classname', test.ID);
-%     testcase.setAttribute('name', test.Title);
+%     
 % 
 %     testcase.setAttribute('time', '0.1');
 % 
