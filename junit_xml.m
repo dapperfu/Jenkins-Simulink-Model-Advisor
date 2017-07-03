@@ -1,8 +1,9 @@
-% function junit_xml(ma)
-% narginchk(0, 1);
-% if nargin == 0
-%    ma = Simulink.ModelAdvisor.getModelAdvisor(bdroot); 
-% end
+function junit_xml(ma)
+
+narginchk(0, 1);
+if nargin == 0
+   ma = Simulink.ModelAdvisor.getModelAdvisor(bdroot); 
+end
 
 checks = ma.getCheckAll;
 
@@ -10,8 +11,8 @@ n_checks = numel(checks);
 checks_out=cell(1, n_checks);
 for i = 1:n_checks
     check=struct();
-   
     check.id = checks{i};
+    fprintf('Running Check: %s\n',check.id);
     tic
     ma.runCheck(check.id);
     check_data.duration=toc;
