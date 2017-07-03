@@ -37,14 +37,16 @@ for i = 1:tests
     testcase.setAttribute('classname', test.ID);
     testcase.setAttribute('name', test.Title);   
     
+    result_str = resultstr(test.Result);
+    result_node = docNode.createTextNode(result_str);
     if test.Success
         sysout = docNode.createElement('system-out');
-        sysout.appendChild(docNode.createTextNode(resultstr(test.Result)));
+        sysout.appendChild(result_node);
         testcase.appendChild(sysout);
     else
         failure = docNode.createElement('failure');
         failure.setAttribute('type', 'VerificationFailure');
-        failure.appendChild(docNode.createTextNode(resultstr(test.Result)));
+        failure.appendChild(result_node);
         testcase.appendChild(failure);
     end
     %%
