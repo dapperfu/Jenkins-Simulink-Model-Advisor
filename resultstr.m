@@ -35,6 +35,10 @@ if numel(result)>1
 end
 
 str = result{1};
+if isnumeric(str) && isempty(str)
+   str = ''; 
+end
+disp(class(str))
 
 %------------- END CODE ----------------
 end
