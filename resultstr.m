@@ -1,18 +1,15 @@
 function str = resultstr(result)
-% RESULTSTR - Convert 
-%	DescriptionLine1
-%	DescriptionLine2
-%	DescriptionLine3
-%	DescriptionLine4
+% RESULTSTR - Convert Model Advisor CheckCellArray.Result to string.
+%   Strips combines result(s) into a single string and strips HTML.
 %
 % Syntax:
-%	output1 = resultstr(input1)
+%	str = resultstr(ma.CheckCellArray{1}.Result)
 %
 % Inputs:
-%	input1 - InputDescription
+%	result - Model Advisor Check Cell Array Result.
 %
 % Outputs:
-%	output1 - OutputDescription
+%	str - string.
 %
 % Example:
 %	output1 = resultstr(input1)
