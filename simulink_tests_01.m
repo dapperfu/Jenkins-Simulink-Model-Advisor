@@ -5,6 +5,8 @@ ma.run;
 %%
 checks =  ma.CheckCellArray;
 for i=1:numel(checks)
-    check = checks{1};
-    
+    check = checks{i};
+    if ~check.Success
+        fprintf('%s\n',check.Result)
+    end
 end
