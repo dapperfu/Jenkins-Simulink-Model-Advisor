@@ -67,7 +67,7 @@ for i = 1:tests
     testcase.setAttribute('classname', check.obj.ID);
     testcase.setAttribute('name', check.obj.Title);
     
-    result_str = resultstr(check.Result);
+    result_str = resultstr(check.result);
     result_node = docNode.createTextNode(result_str);
     if test.status
         sysout = docNode.createElement('system-out');
@@ -81,6 +81,10 @@ for i = 1:tests
         end
         failure.appendChild(result_node);
         testcase.appendChild(failure);
+    end
+    
+    if ~isempty(check.result_data)
+       disp('Non Empty Result Data'); 
     end
     testcases{i} = testcase;
 end
