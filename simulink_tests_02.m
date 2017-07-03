@@ -61,7 +61,7 @@ for i = 1:tests
     testcase.setAttribute('classname', check.ID);
     testcase.setAttribute('name', check.Title);
     
-    testcase.setAttribute('time',strrep(datestr(now, 31), ' ', 'T'));
+    testcase.setAttribute('time','0.1');
 
     
     result_str = resultstr(check.result);
@@ -71,7 +71,7 @@ for i = 1:tests
         sysout.appendChild(result_node);
         %testcase.appendChild(sysout);
     elseif isempty(check.Result)
-        skipped = docNode.createElement('skipped');
+        skipped = docNode.createElement('error');
         testcase.appendChild(skipped);        
     else
         failure = docNode.createElement('failure');
