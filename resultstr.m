@@ -24,7 +24,7 @@ function str = resultstr(result)
 
 %------------- BEGIN CODE --------------
 str = '';
-if numel(result)>1
+if iscell(result)
     n = numel(result);
     str_cell = cell(1,n);
     for i = 1:n
@@ -45,6 +45,7 @@ switch class(result)
     otherwise
         error(class(result))
 end
+str = striphtml(str)
 %------------- END CODE ----------------
 end
 
