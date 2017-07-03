@@ -40,10 +40,15 @@ switch class(result)
     case 'cell'
         str = result{1};
         if isnumeric(str) && isempty(str)
-            str = ''
+            str = '';
         end
     otherwise
         error(class(result))
 end
 %------------- END CODE ----------------
+end
+
+function str = striphtml(str)
+pat = '<[^>]*>';
+str = regexprep(str, pat, '');
 end
