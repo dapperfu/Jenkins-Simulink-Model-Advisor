@@ -1,13 +1,15 @@
 function junit_xml(ma)
-
 narginchk(0, 1);
-
 if nargin == 0
    ma = Simulink.ModelAdvisor.getModelAdvisor(bdroot); 
 end
 
+checks = ma.getCheckAll;
 
-checks = ma.CheckCellArray;
+
+
+
+
 %%
 tests = numel(checks);
 successes = sum(cellfun(@(check) check.Success, checks));
