@@ -77,9 +77,6 @@ for i = 1:tests
     else
         failure = docNode.createElement('failure');
         failure.setAttribute('type', 'VerificationFailure');
-        if isempty(result_str)
-           disp('empty string'); 
-        end
         failure.appendChild(result_node);
         testcase.appendChild(failure);
     end
