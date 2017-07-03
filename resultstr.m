@@ -23,7 +23,7 @@ function str = resultstr(result)
 % July 2017
 
 %------------- BEGIN CODE --------------
-
+str = '';
 
 
 %------------- END CODE ----------------
