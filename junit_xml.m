@@ -1,8 +1,13 @@
 function docNode = junit_xml(checks)
 
+%%
+tests = numel(checks);
+successes = sum(cellfun(@(check) check.Success, checks));
+failures  = tests - successes;
+%%
 docNode = com.mathworks.xml.XMLUtils.createDocument('testsuites');
 docRootNode = docNode.getDocumentElement;
-
+%%
 testsuite = docNode.createElement('testsuite'); 
 testsuite.setAttribute('errors','0');
 testsuite.setAttribute('failures','1');
