@@ -4,6 +4,8 @@ ma = Simulink.ModelAdvisor.getModelAdvisor(model);
 ma.run;
 %%
 checks =  ma.CheckCellArray;
+for i=1:numel(checks)
+%%
 
 tests = numel(checks);
 successes = sum(cellfun(@(check) check.Success, checks));
