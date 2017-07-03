@@ -42,10 +42,12 @@ switch class(result)
         if isnumeric(str) && isempty(str)
             str = '';
         end
+    case 'char'
+        str = result;
     otherwise
         error(class(result))
 end
-str = striphtml(str)
+str = striphtml(str);
 %------------- END CODE ----------------
 end
 
