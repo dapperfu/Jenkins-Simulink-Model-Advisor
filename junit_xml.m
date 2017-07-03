@@ -14,7 +14,6 @@ testsuite.setAttribute('tests', sprintf('%d', tests));
 testsuite.setAttribute('failures', sprintf('%d', failures));
 testsuite.setAttribute('errors','0');
 
-
 testsuite.setAttribute('id','0');
 testsuite.setAttribute('time','0.1');
 testsuite.setAttribute('package','Simulink Model Advisor');
