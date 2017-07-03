@@ -25,14 +25,14 @@ testcase = docNode.createElement('testcase');
 testcase.setAttribute('classname', 'ExampleTest');
 testcase.setAttribute('name', 'testOne');
 testcase.setAttribute('time', '0.1');
-
-failure = docNode.createElement('failure'); 
-failure.setAttribute('type', 'VerificationFailure');
-failure.appendChild(docNode.createTextNode('Failure Reason'));
-
+if true
+    failure = docNode.createElement('failure');
+    failure.setAttribute('type', 'VerificationFailure');
+    failure.appendChild(docNode.createTextNode('Failure Reason'));
+end
 testcase.appendChild(failure);
 
-sysout = docNode.createElement('system-out'); 
+sysout = docNode.createElement('system-out');
 sysout.appendChild(docNode.createTextNode(''));
 testcase.appendChild(sysout)
 
