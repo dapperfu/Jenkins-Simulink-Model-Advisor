@@ -35,7 +35,8 @@ testsuite.setAttribute('timestamp',strrep(datestr(now, 31), ' ', 'T'));
 
 properties = docNode.createElement('properties'); 
 property = docNode.createElement('property'); 
-property.setAttribute('ModelName', ma.ModelName);
+property.setAttribute('name', 'ModelName'); 
+property.setAttribute('value', ma.ModelName);
 properties.appendChild(property)
 testsuite.appendChild(properties)
 
@@ -76,7 +77,6 @@ docRootNode.appendChild(testsuite);
 
 xmlFileName = [model,'.xml'];
 xmlwrite(xmlFileName,docNode);
-
 
 if ~isempty(getenv('BUILD_NUMBER'))
     exit(failures>0);
