@@ -1,4 +1,4 @@
-function docNode = junit_xml(checks)
+function hjunit_xml(checks)
 
 %%
 tests = numel(checks);
