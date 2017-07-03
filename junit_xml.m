@@ -17,7 +17,7 @@ testsuite.setAttribute('errors','0');
 testsuite.setAttribute('package','Simulink Model Advisor');
 testsuite.setAttribute('time','0.1');
 testsuite.setAttribute('id','0');
-testsuite.setAttribute('name','ts_name');
+testsuite.setAttribute('name','Simulink Model Advisor');
 
 [id, hostname] = system('hostname');
 testsuite.setAttribute('hostname', hostname);
