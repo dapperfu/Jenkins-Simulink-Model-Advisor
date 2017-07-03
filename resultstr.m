@@ -31,6 +31,7 @@ if iscell(result)
         str_cell{i} = feval(mfilename, result{i});
     end
     str = strjoin(str_cell, '\n');
+    str = strtrim(str);
     return;
 end
 
@@ -63,6 +64,7 @@ switch class(result)
         error(class(result))
 end
 str = striphtml(str);
+str = strtrim(str);
 %------------- END CODE ----------------
 end
 
