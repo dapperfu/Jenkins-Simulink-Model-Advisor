@@ -77,4 +77,7 @@ docRootNode.appendChild(testsuite);
 xmlFileName = [model,'.xml'];
 xmlwrite(xmlFileName,docNode);
 
-exit(failures>0);
+
+if ~isempty(getenv('BUILD_NUMBER'))
+    exit(failures>0);
+end

@@ -17,4 +17,6 @@ mkdir('report');
 ma.exportReport('report/report.html');
 ma.ResultGUI;
 
-exit(0);
+if ~isempty(getenv('BUILD_NUMBER'))
+    exit(0);
+end
