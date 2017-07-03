@@ -12,7 +12,9 @@ end
 
 model = 'embedded_coder_fixedstep_multirate';
 open_system(model);
+pause(5);
 ma = Simulink.ModelAdvisor.getModelAdvisor(model);
+pause(5);
 ma.run;
 
 checks = ma.CheckCellArray;
