@@ -71,7 +71,7 @@ for i = 1:tests
         sysout.appendChild(result_node);
         %testcase.appendChild(sysout);
     elseif isempty(check.Result)
-        skipped = docNode.createElement('error');
+        skipped = docNode.createElement('skipped');
         testcase.appendChild(skipped);        
     else
         failure = docNode.createElement('failure');
