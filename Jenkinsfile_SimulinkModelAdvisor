@@ -1,0 +1,40 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Check Out') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '32b0d8fb-c3d8-498f-a3db-fa8cb7698a64', url: 'git@github.com:jed-frey/SimulinkModelAdvisor_unittest.git']]])
+            }
+        }
+        stage('Simulink MA Check 1') {
+            steps {
+                bat returnStdout: true, script: 'run_tests'
+            }
+        }
+        stage('Simulink MA Check 2') { 
+            steps { 
+                bat returnStdout: true, script: 'simulink_tests_02'
+                junit keepLongStdio: true, testDataPublishers: [[$class: 'TestDataPublisher']], testResults: 'embedded_coder_fixedstep_multirate.xml'
+            }
+        }
+    }
+    
+    post {
+        always {
+          bat 'echo This will always run'
+        }
+        success {
+          bat 'echo This will run only if successful'
+        }
+        failure {
+          bat 'echo This will run only if failed'
+        }
+        unstable {
+          bat 'echo This will run only if the run was marked as unstable'
+        }
+        changed {
+          bat 'echo This will run only if the state of the Pipeline has changed'
+          bat 'echo For example, the Pipeline was previously failing but is now successful'
+        }
+    }
+}
