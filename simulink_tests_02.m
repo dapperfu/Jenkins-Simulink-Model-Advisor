@@ -84,7 +84,7 @@ end
 for i = 1:tests
     testsuite.appendChild(testcases{i});
 end
-
+w
 docRootNode.appendChild(testsuite);
 
 xmlFileName = [model,'.xml'];
