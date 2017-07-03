@@ -9,7 +9,9 @@ testsuite.setAttribute('tests','1');
 testsuite.setAttribute('time','0.1');
 testsuite.setAttribute('id','0');
 testsuite.setAttribute('name','ts_name');
-testsuite.setAttribute('hostname','THISHOST');
+
+[id, hostname] = system('hostname');
+testsuite.setAttribute('hostname', hostname);
 testsuite.setAttribute('timestamp',strrep(datestr(now, 31), ' ', 'T'));
 % 
 % properties = docNode.createElement('properties'); 
