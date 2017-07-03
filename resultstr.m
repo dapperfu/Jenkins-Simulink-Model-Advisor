@@ -36,16 +36,11 @@ end
 
 switch class(result)
     case 'ModelAdvisor.FormatTemplate'
-        try
-            switch class(result.SubResultStatusText)
-                case 'char'
-                    
-                otherwise
-                    error(class(result))
-            end
-            str = sprintf('%s: %s', result.SubResultStatus, result.SubResultStatusText.Content);
-        catch
-            str = result.SubResultStatus;
+        switch class(result.SubResultStatusText)
+            case 'char'
+                str = sprintf('%s: %s', result.SubResultStatus, result.SubResultStatusText);
+            otherwise
+                error(class(result))
         end
     case 'ModelAdvisor.Text'
         str = result.Content;
