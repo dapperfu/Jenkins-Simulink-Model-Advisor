@@ -37,7 +37,11 @@ end
 switch class(result)
     case 'ModelAdvisor.FormatTemplate'
         str = sprintf('%s: %s', result.SubResultStatus, result.SubResultStatusText.Content);
-   
+    case 'cell'
+        str = result{1};
+        if isnumeric(str) && isempty(str)
+            str = ''
+        end
     otherwise
         error(class(result))
 end
