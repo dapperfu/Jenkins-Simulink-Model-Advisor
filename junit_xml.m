@@ -44,7 +44,7 @@ for i = 1:tests
     else
         failure = docNode.createElement('failure');
         failure.setAttribute('type', 'VerificationFailure');
-        failure.appendChild(docNode.createTextNode('Failure Reason'));
+        failure.appendChild(docNode.createTextNode(resultstr(test.Result)));
         testcase.appendChild(failure);
     end
     %%
