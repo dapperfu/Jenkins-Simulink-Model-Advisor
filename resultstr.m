@@ -44,6 +44,12 @@ switch class(result)
         end
     case 'char'
         str = result;
+    case 'double'
+        if isempty(result)
+            str = '';
+        else
+            error('Non Empty Double')
+        end
     otherwise
         error(class(result))
 end
