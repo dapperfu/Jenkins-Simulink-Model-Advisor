@@ -5,3 +5,5 @@ ma.run;
 mkdir('report');
 ma.exportReport('report/report.html');
 ma.ResultGUI;
+
+exit(0);
