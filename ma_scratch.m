@@ -11,3 +11,9 @@ task_checks = cellfun(@(task) ma.getCheckForTask(task), tasks, 'UniformOutput', 
 
 n_group_checks = cellfun(@(checks) numel(checks), group_checks);
 n_task_checks = cellfun(@(checks) numel(checks), task_checks);
+n_checks = numel(checks);
+%%
+for i = 1:n_checks
+    check = checks{i};
+    
+end
