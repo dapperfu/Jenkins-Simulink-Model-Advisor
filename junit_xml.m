@@ -41,8 +41,7 @@ for i = 1:tests
 
     testcase.setAttribute('classname', 'ExampleTest');
     testcase.setAttribute('name', 'testOne');
-    
-    
+       
     if true
         failure = docNode.createElement('failure');
         failure.setAttribute('type', 'VerificationFailure');
