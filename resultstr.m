@@ -25,9 +25,14 @@ function str = resultstr(result)
 %------------- BEGIN CODE --------------
 str = '';
 if numel(result)>1
-   return 
+    str_cell = {};
+    for i = 1:numel(result)
+        str_cell = [str_cell resultstr(result{1})];
+    end
+    return;
 end
 
+str = result{1};
 
 %------------- END CODE ----------------
 end
