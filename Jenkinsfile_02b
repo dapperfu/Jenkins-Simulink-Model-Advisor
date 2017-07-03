@@ -1,0 +1,11 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Test') { 
+            steps { 
+                sh 'run_tests_02.bat' 
+                junit 'run_test_02.xml'
+            }
+        }
+    }
+}
