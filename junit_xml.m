@@ -29,10 +29,14 @@ testsuite.setAttribute('timestamp',strrep(datestr(now, 31), ' ', 'T'));
 % properties.appendChild(property)
 % testsuite.appendChild(properties)
 
-testcase = cell(1, tests);
+testcases = cell(1, tests);
 for i = 1:tests
-    testcase = docNode.createElement('testcase'); 
+    testcases{i} = docNode.createElement('testcase'); 
+end
 
+
+for i = 1:tests
+    testsuite.appendChild(testcases{i});
 end
     test = checks{i};
     
