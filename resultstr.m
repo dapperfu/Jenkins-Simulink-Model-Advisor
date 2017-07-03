@@ -25,7 +25,6 @@ function str = resultstr(result)
 %------------- BEGIN CODE --------------
 str = '';
 if numel(result)>1
-   str
    return 
 end
 
