@@ -81,9 +81,6 @@ for i = 1:tests
         testcase.appendChild(failure);
     end
     
-    if ~isempty(check.result_data)
-       disp('Non Empty Result Data'); 
-    end
     testcases{i} = testcase;
 end
 
@@ -91,31 +88,6 @@ end
 for i = 1:tests
     testsuite.appendChild(testcases{i});
 end
-%     testcase.setAttribute('classname', test.ID);
-%     
-% 
-%     testcase.setAttribute('time', '0.1');
-% 
-%     testcase.setAttribute('classname', 'ExampleTest');
-%     testcase.setAttribute('name', 'testOne');
-%        
-%     if true
-%         failure = docNode.createElement('failure');
-%         failure.setAttribute('type', 'VerificationFailure');
-%         failure.appendChild(docNode.createTextNode('Failure Reason'));
-%     end
-%     testcase.appendChild(failure);
-% 
-%     sysout = docNode.createElement('system-out');
-%     sysout.appendChild(docNode.createTextNode(''));
-%     testcase.appendChild(sysout);
-% 
-%     syserr = docNode.createElement('system-err'); 
-%     syserr.appendChild(docNode.createTextNode(''));
-%     testcase.appendChild(syserr);
-% 
-%     testsuite.appendChild(testcase);
-% end
 
 docRootNode.appendChild(testsuite);
 
