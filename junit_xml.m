@@ -95,6 +95,6 @@ end
 
 docRootNode.appendChild(testsuite);
 
-xmlFileName = [tempname,'.xml'];
-xmlwrite(xmlFileName,docNode);
-type(xmlFileName);
+% xmlFileName = [tempname,'.xml'];
+% xmlwrite(xmlFileName,docNode);
+% type(xmlFileName);
