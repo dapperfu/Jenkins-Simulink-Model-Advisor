@@ -29,36 +29,38 @@ testsuite.setAttribute('timestamp',strrep(datestr(now, 31), ' ', 'T'));
 % properties.appendChild(property)
 % testsuite.appendChild(properties)
 
+testcase = cell(1, tests);
 for i = 1:tests
     testcase = docNode.createElement('testcase'); 
 
+end
     test = checks{i};
     
-    testcase.setAttribute('classname', test.ID);
-    testcase.setAttribute('name', test.Title);
-
-    testcase.setAttribute('time', '0.1');
-
-    testcase.setAttribute('classname', 'ExampleTest');
-    testcase.setAttribute('name', 'testOne');
-       
-    if true
-        failure = docNode.createElement('failure');
-        failure.setAttribute('type', 'VerificationFailure');
-        failure.appendChild(docNode.createTextNode('Failure Reason'));
-    end
-    testcase.appendChild(failure);
-
-    sysout = docNode.createElement('system-out');
-    sysout.appendChild(docNode.createTextNode(''));
-    testcase.appendChild(sysout);
-
-    syserr = docNode.createElement('system-err'); 
-    syserr.appendChild(docNode.createTextNode(''));
-    testcase.appendChild(syserr);
-
-    testsuite.appendChild(testcase);
-end
+%     testcase.setAttribute('classname', test.ID);
+%     testcase.setAttribute('name', test.Title);
+% 
+%     testcase.setAttribute('time', '0.1');
+% 
+%     testcase.setAttribute('classname', 'ExampleTest');
+%     testcase.setAttribute('name', 'testOne');
+%        
+%     if true
+%         failure = docNode.createElement('failure');
+%         failure.setAttribute('type', 'VerificationFailure');
+%         failure.appendChild(docNode.createTextNode('Failure Reason'));
+%     end
+%     testcase.appendChild(failure);
+% 
+%     sysout = docNode.createElement('system-out');
+%     sysout.appendChild(docNode.createTextNode(''));
+%     testcase.appendChild(sysout);
+% 
+%     syserr = docNode.createElement('system-err'); 
+%     syserr.appendChild(docNode.createTextNode(''));
+%     testcase.appendChild(syserr);
+% 
+%     testsuite.appendChild(testcase);
+% end
 
 docRootNode.appendChild(testsuite);
 
