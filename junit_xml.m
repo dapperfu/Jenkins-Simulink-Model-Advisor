@@ -14,7 +14,7 @@ for i = 1:n_checks
     check_data.id = checks{i};
     fprintf('Running Check: %s\n',check_data.id);
     tic
-    ma.runCheck(check_data.id);
+    check_data.run = ma.runCheck(check_data.id);
     check_data.duration=toc;
     check_data.obj = ma.getCheckObj(check_data.id);
     check_data.result = ma.getCheckResult(check_data.id);
