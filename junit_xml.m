@@ -1,4 +1,4 @@
-function junit_xml(checks)
+function junit_xml(ma)
 
 %%
 tests = numel(checks);
