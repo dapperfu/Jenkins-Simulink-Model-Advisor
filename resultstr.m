@@ -39,6 +39,8 @@ switch class(result)
         switch class(result.SubResultStatusText)
             case 'char'
                 str = sprintf('%s: %s', result.SubResultStatus, result.SubResultStatusText);
+            case 'ModelAdvisor.Text'
+                str = sprintf('%s: %s', result.SubResultStatus, result.SubResultStatusText.Content);
             otherwise
                 error(class(result))
         end
