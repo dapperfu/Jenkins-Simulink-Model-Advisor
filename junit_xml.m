@@ -31,9 +31,18 @@ testsuite.setAttribute('timestamp',strrep(datestr(now, 31), ' ', 'T'));
 
 for i = 1:tests
     testcase = docNode.createElement('testcase'); 
+
+    test = checks{i};
+    
+    testcase.setAttribute('classname', test.ID);
+
+    
+    
+    
+        testcase.setAttribute('time', '0.1');
+
     testcase.setAttribute('classname', 'ExampleTest');
     testcase.setAttribute('name', 'testOne');
-    testcase.setAttribute('time', '0.1');
     if true
         failure = docNode.createElement('failure');
         failure.setAttribute('type', 'VerificationFailure');
