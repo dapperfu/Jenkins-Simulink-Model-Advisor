@@ -39,7 +39,7 @@ pipeline {
                 keepAll: true,
                 reportDir: 'docs',
                 reportFiles: 'index.html',
-                reportTitles: "Simulink Model Advisor Report",
+                reportTitles: "Model Advisor Report",
                 reportName: "Model Advisor Report"
               ])
             }
