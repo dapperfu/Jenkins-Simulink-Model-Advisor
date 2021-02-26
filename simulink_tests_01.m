@@ -17,6 +17,8 @@ mkdir('report');
 ma.exportReport('report/report.html');
 ma.ResultGUI;
 
+% Don't exit Matlab if BUILD_NUMBER is not set.
+% For testing of script outside of Jenkins environment.
 if ~isempty(getenv('BUILD_NUMBER'))
     exit(0);
 end

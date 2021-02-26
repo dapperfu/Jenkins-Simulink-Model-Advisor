@@ -45,6 +45,8 @@ switch class(result)
             otherwise
                 error(class(result.SubResultStatusText))
         end
+    case 'ModelAdvisor.Paragraph'
+        str = result.Items(1).Content;
     case 'ModelAdvisor.Text'
         str = result.Content;
     case 'cell'
@@ -61,7 +63,7 @@ switch class(result)
             error('Non Empty Double')
         end
     otherwise
-        error(class(result))
+        %error(class(result))
 end
 str = striphtml(str);
 str = strtrim(str);
