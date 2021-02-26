@@ -1,7 +1,7 @@
 1. [What is CI/CD? Continuous integration and continuous delivery explained](https://www.infoworld.com/article/3271126/what-is-cicd-continuous-integration-and-continuous-delivery-explained.html)
 2. For this example Jenkins is used as the CI/CD tool but the concepts and tools should apply to any backend such as [GitLab Runner](https://docs.gitlab.com/runner/install/windows.html).
 
-# # Jenkins Simulink Model Advisor
+# Jenkins Simulink Model Advisor
 
 Working proof-of-concept examples on how to add Simulink Model Advisor checks to your devops CI/CD pipeline. This fully automates execution of Simulink Model Advisor.
 
