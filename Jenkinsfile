@@ -28,7 +28,7 @@ pipeline {
 
         stage('Archive JUnit Artifacts') {
           steps {
-            junit(testResults: '**/*.xml', checksName: 'Archive JUnit test results', healthScaleFactor: 1, allowEmptyResults: true, skipPublishingChecks: true)
+            junit(testResults: '**/*.xml', checksName: 'JUnit test results', healthScaleFactor: 1, allowEmptyResults: true, skipPublishingChecks: true)
           }
         }
 
