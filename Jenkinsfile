@@ -22,7 +22,7 @@ pipeline {
       parallel {
         stage('Archive Artifacts') {
           steps {
-            junit(testResults: '**/*.xml', checksName: 'Archive JUnit test results', keepLongStdio: true, healthScaleFactor: 1)
+            junit(testResults: '**/*.xml', checksName: 'Archive JUnit test results', healthScaleFactor: 1, allowEmptyResults: true, skipPublishingChecks: true)
             archiveArtifacts(artifacts: 'report/report.html', fingerprint: true)
           }
         }
