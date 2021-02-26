@@ -35,7 +35,7 @@ pipeline {
                 alwaysLinkToLastBuild: false,
                 keepAll: true,
                 reportDir: 'coverage',
-                reportFiles: 'report/report.html',
+                reportFiles: 'docs/index.html',
                 reportTitles: "Simulink Model Advisor Report",
                 reportName: "Model Advisor Report"
               ])
