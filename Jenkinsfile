@@ -20,19 +20,16 @@ pipeline {
 
     stage('Artifact Management') {
       parallel {
+        stage('Archive Artifacts') {
+          steps {
+            archiveArtifacts(artifacts: 'docs/index.html, **/*.xml', fingerprint: true)
+          }
+        }
         stage('Archive JUnit Artifacts') {
           steps {
             junit(testResults: '**/*.xml', checksName: 'Archive JUnit test results', healthScaleFactor: 1, allowEmptyResults: true, skipPublishingChecks: true)
-            archiveArtifacts(artifacts: 'report/report.html', fingerprint: true)
           }
         }
-        
-        stage('Archive HTML Artifacts') {
-          steps {
-            archiveArtifacts(artifacts: 'docs/index.html', fingerprint: true)
-          }
-        }
-
         stage('Publish HTML Results') {
           steps {
             script {
@@ -40,8 +37,8 @@ pipeline {
                 allowMissing: false,
                 alwaysLinkToLastBuild: false,
                 keepAll: true,
-                reportDir: 'coverage',
-                reportFiles: 'docs/index.html',
+                reportDir: 'docs',
+                reportFiles: 'index.html',
                 reportTitles: "Simulink Model Advisor Report",
                 reportName: "Model Advisor Report"
               ])
