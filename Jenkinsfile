@@ -20,7 +20,7 @@ pipeline {
 
     stage('Artifact Management') {
       parallel {
-        stage('Archive Artifacts') {
+        stage('Archive HTML Artifacts') {
           steps {
             archiveArtifacts(artifacts: 'docs/index.html, **/*.xml', fingerprint: true)
           }
