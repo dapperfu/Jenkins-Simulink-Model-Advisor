@@ -5,13 +5,13 @@ pipeline {
       parallel {
         stage('Generate HTML Report') {
           steps {
-            runMATLABCommand 'run(\'simulink_tests_01\')'
+            runMATLABCommand 'run(\'model_advisor_HTML\')'
           }
         }
 
         stage('Generate JUnit Result') {
           steps {
-            runMATLABCommand 'run(\'simulink_tests_02\')'
+            runMATLABCommand 'run(\'model_advisor_XML\')'
           }
         }
 
