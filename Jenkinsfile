@@ -20,16 +20,18 @@ pipeline {
 
     stage('Artifact Management') {
       parallel {
-        stage('Archive HTML Artifacts') {
+        stage('Archive Artifacts') {
           steps {
             archiveArtifacts(artifacts: 'docs/index.html, **/*.xml', fingerprint: true)
           }
         }
+
         stage('Archive JUnit Artifacts') {
           steps {
             junit(testResults: '**/*.xml', checksName: 'Archive JUnit test results', healthScaleFactor: 1, allowEmptyResults: true, skipPublishingChecks: true)
           }
         }
+
         stage('Publish HTML Results') {
           steps {
             script {
