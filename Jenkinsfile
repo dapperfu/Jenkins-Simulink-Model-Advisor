@@ -26,7 +26,7 @@ pipeline {
             archiveArtifacts(artifacts: 'report/report.html', fingerprint: true)
           }
         }
-        
+
         stage('Archive HTML Artifacts') {
           steps {
             archiveArtifacts(artifacts: 'docs/index.html', fingerprint: true)
@@ -40,8 +40,8 @@ pipeline {
                 allowMissing: false,
                 alwaysLinkToLastBuild: false,
                 keepAll: true,
-                reportDir: 'coverage',
-                reportFiles: 'docs/index.html',
+                reportDir: 'docs',
+                reportFiles: 'index.html',
                 reportTitles: "Simulink Model Advisor Report",
                 reportName: "Model Advisor Report"
               ])
