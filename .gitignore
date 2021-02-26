@@ -2,5 +2,3 @@ run_tests.log
 *.xml
 slprj/*
 *.asv
-report/*
-*.xml

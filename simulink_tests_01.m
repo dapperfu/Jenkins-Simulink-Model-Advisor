@@ -14,7 +14,7 @@ open_system(model);
 ma = Simulink.ModelAdvisor.getModelAdvisor(model);
 ma.run;
 mkdir('report');
-ma.exportReport('report/report.html');
+ma.exportReport('docs/index.html');
 ma.ResultGUI;
 
 % Don't exit Matlab if BUILD_NUMBER is not set.
