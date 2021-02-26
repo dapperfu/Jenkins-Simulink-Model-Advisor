@@ -22,13 +22,13 @@ pipeline {
       parallel {
         stage('Archive Artifacts') {
           steps {
-            archiveArtifacts(artifacts: 'docs/index.html, **/*.xml', fingerprint: true)
+            archiveArtifacts(artifacts: 'docs/index.html, embedded_coder_fixedstep_multirate.xml', fingerprint: true)
           }
         }
 
         stage('Archive JUnit Artifacts') {
           steps {
-            junit(testResults: '**/*.xml', checksName: 'JUnit test results', healthScaleFactor: 1, allowEmptyResults: true, skipPublishingChecks: true)
+            junit(testResults: 'embedded_coder_fixedstep_multirate.xml', checksName: 'JUnit test results', healthScaleFactor: 1, allowEmptyResults: true, skipPublishingChecks: true)
           }
         }
 
