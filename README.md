@@ -5,16 +5,20 @@
 
 Working proof-of-concept examples on how to add Simulink Model Advisor checks to your devops CI/CD pipeline. This fully automates execution of Simulink Model Advisor.
 
-The `Jeninsfile` executes two Matlab scripts in parallel.
+### [`Jeninsfile`](Jenkinsfile).
 
-- [model_advisor_HTML.m](model_advisor_HTML.m) generates a HTML report
-- [model_advisor_XML.m](model_advisor_XML.m) generates a JUnit XML report 
-
-In addition to being archived on Jenkins the Test reports can be published to S3, Windows Shared Drives, notified through Slack, or any other supported Jenkins plugin notification & artifact plugin. The HTML results can also be published to GitHub Pages as shown: https://dapperfu.github.io/Jenkins-Simulink-Model-Advisor/
+1. Executes two Matlab scripts in parallel.
+   - [model_advisor_HTML.m](model_advisor_HTML.m) generates a HTML report
+   - [model_advisor_XML.m](model_advisor_XML.m) generates a JUnit XML report 
+2. Archive Artifacts
+   - Displays JUnit results natively in Jenkins.
+   - Publish the HTML file with [HTML Publisher](https://plugins.jenkins.io/htmlpublisher/) plugin.
+   - In addition to being archived on Jenkins the Test reports can be published to S3, Windows Shared Drives, notified through Slack, or any other supported Jenkins plugin notification & artifact plugin. 
+   - The HTML results can also be published to GitHub Pages as shown: https://dapperfu.github.io/Jenkins-Simulink-Model-Advisor/
 
 ## Jenkins Pipeline View:
 
-This is the Pipeline view of this project. The HTML and JUnit report generation are executed in parallel. The artifacts are then archived and processed.
+This is the Pipeline view of this project. The HTML and JUnit report generation are executed in parallel. The artifacts are then archived and processed in parallel. 
 
 ![](Jenkins_pipeline.png)
 
@@ -22,7 +26,7 @@ Example screenshot of Model Advisor running with Jenkins BlueOcean page in the b
 
 ![Executing Model Advisor](Jenkins_run.png)
 
-# Model Advisor -> JUnit Results Display
+## Model Advisor -> JUnit Results Display
 
 The [model_advisor_XML.m](model_advisor_XML.m) script converts the Model Advisor results to a JUnit compliant XML file. The Archive JUnit Results step consumes the generated XML. These results  can then natively displayed directly from Jenkins as shown below.
 
@@ -34,15 +38,14 @@ Passed Tests:
 
 ![](Jenkins_junit_passed.png)
 
-# Jenkins Artifacts
+## Jenkins Artifacts
 
 Web view of the artifacts page with each archived artifact. 
 
 ![](Jenkins_Artifacts.png)
 
 
-
-# Model Advisor HTML Report Display
+## Model Advisor HTML Report Display
 
 The Publish HTML Jenkins plugin allows you to publish HTML files for viewing directly from the Artifacts page. The "Model Advisor Report" link on the Artifacts page (above) will take you to the report as published from Model Advisor.
 
