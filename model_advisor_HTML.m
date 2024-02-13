@@ -1,24 +1,40 @@
 % Jenkins Set Environment Variables
-% https://wiki.jenkins-ci.org/display/JENKINS/Building+a+software+project#Buildingasoftwareproject-below
-envs = {'BUILD_NUMBER', 'BUILD_ID', 'BUILD_URL', 'NODE_NAME', 'JOB_NAME', 'BUILD_TAG', 'JENKINS_URL', 'EXECUTOR_NUMBER', 'WORKSPACE'};
-% Alphabetically sort the environmental variables to print.
-envs = sort(envs);
-% Loop through the variables and print their result to the diary.
-for env = envs
-    env = env{1};
-    fprintf('%s: %s\n', env, getenv(env))
+% Define environment variables relevant for Jenkins builds
+jenkinsEnvVariables = {'BUILD_NUMBER', 'BUILD_ID', 'BUILD_URL', 'NODE_NAME', 'JOB_NAME', 'BUILD_TAG', 'JENKINS_URL', 'EXECUTOR_NUMBER', 'WORKSPACE'};
+
+% Sort environment variables alphabetically
+jenkinsEnvVariables = sort(jenkinsEnvVariables);
+
+% Loop through the variables and print their values to the diary
+for envVar = jenkinsEnvVariables
+    envVar = envVar{1};
+    fprintf('%s: %s\n', envVar, getenv(envVar))
 end
 
+% Model Advisor
 model = 'embedded_coder_fixedstep_multirate';
+
+% Open the Simulink model
 open_system(model);
+
+% Get the Model Advisor object for the model
 ma = Simulink.ModelAdvisor.getModelAdvisor(model);
+
+% Run Model Advisor checks
 ma.run;
+
+% Create a directory to store the report
 mkdir('report');
+
+% Export the Model Advisor report to HTML format
 ma.exportReport('docs/index.html');
+
+% Open the Model Advisor Result GUI for further analysis
 ma.ResultGUI;
 
-% Don't exit Matlab if BUILD_NUMBER is not set.
-% For testing of script outside of Jenkins environment.
+% Check if BUILD_NUMBER is set
+% This prevents exiting MATLAB if the script is run outside of a Jenkins environment for testing purposes
 if ~isempty(getenv('BUILD_NUMBER'))
-    exit(0);
+    exit(0); % Exit MATLAB with success status code
 end
+
