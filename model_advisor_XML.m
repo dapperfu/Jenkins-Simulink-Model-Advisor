@@ -12,7 +12,7 @@ for envVar = jenkinsEnvVariables
 end
 
 % Model Advisor
-model = 'embedded_coder_fixedstep_multirate';
+model = 'CruiseControlMode';
 
 % Open the Simulink model
 open_system(model);
