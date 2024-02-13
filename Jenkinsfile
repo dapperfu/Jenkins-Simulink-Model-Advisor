@@ -1,5 +1,7 @@
 pipeline {
-  agent any
+  agent {
+        label 'WinLocalagent'
+    }
   stages {
     stage('Run Model Advisor') {
       parallel {
