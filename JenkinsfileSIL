@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        runMATLABCommand 'run(\'CruiseControlMode\')'
+        runMATLABCommand 'run(\'CruiseControlModeBuild\')'
       }
     }
 
