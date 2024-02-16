@@ -1,4 +1,4 @@
-classdef ModelBuildAction
+classdef modelBuildAction
     % MODELBUILDACTION Assists in building models and managing artifacts
     
     properties
@@ -8,7 +8,7 @@ classdef ModelBuildAction
     end
     
     methods
-        function obj = ModelBuildAction(modelName)
+        function obj = modelBuildAction(modelName)
             % Constructor
             if nargin < 1
                 error('Please provide a model name.');
