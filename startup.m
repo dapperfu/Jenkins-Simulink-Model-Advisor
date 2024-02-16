@@ -1,7 +1,5 @@
 % startUp.m sets up the project settings
 % Configured to run at project startup
-%
-% Copyright 2021 The MathWorks, Inc.
 
 % Clear the workspace.
 evalin('base', 'clear;');
@@ -12,46 +10,48 @@ close('all');
 % Close all models.
 bdclose('all');
 
-myProject       = matlab.project.currentProject;
-projectRoot     = myProject.RootFolder;
-myCodeFolder    = fullfile(projectRoot, 'Code');
+% Get current project
+myProject = matlab.project.currentProject;
+projectRoot = myProject.RootFolder;
+
+% Define folder paths
+myCodeFolder = fullfile(projectRoot, 'Code');
 myCodeGenFolder = fullfile(myCodeFolder, 'codegen');
-myCacheFolder   = fullfile(myCodeFolder, 'cache');
+myCacheFolder = fullfile(myCodeFolder, 'cache');
 
-
-myProject.SimulinkCacheFolder   = myCacheFolder;
+% Set project properties
+myProject.SimulinkCacheFolder = myCacheFolder;
 myProject.SimulinkCodeGenFolder = myCodeGenFolder;
 
-mkdir(fullfile(projectRoot, 'Code'));
-addpath(fullfile(projectRoot, 'Code'));
-addFile(currentProject,'Code\');
+% Create necessary folders
+if ~exist(myCodeFolder, 'dir')
+    mkdir(myCodeFolder);
+end
 
-mkdir(fullfile(projectRoot, 'Design', 'crs_controller', 'pipeline', 'analyze'));
+if ~exist(myCodeGenFolder, 'dir')
+    mkdir(myCodeGenFolder);
+end
+
+% Add folders to MATLAB path
+addpath(myCodeFolder);
 addpath(fullfile(projectRoot, 'Design', 'crs_controller', 'pipeline', 'analyze'));
-
-mkdir(fullfile(projectRoot, 'Design', 'CruiseControlMode', 'pipeline', 'analyze'));
 addpath(fullfile(projectRoot, 'Design', 'CruiseControlMode', 'pipeline', 'analyze'));
-
-mkdir(fullfile(projectRoot, 'Design', 'DriverSwRequest', 'pipeline', 'analyze'));
 addpath(fullfile(projectRoot, 'Design', 'DriverSwRequest', 'pipeline', 'analyze'));
-
-mkdir(fullfile(projectRoot, 'Design', 'TargetSpeedThrottle', 'pipeline', 'analyze'));
 addpath(fullfile(projectRoot, 'Design', 'TargetSpeedThrottle', 'pipeline', 'analyze'));
 
+% Set Simulink file generation control options
 Simulink.fileGenControl('set',...
     'CacheFolder', myCacheFolder,...
     'CodeGenFolder', myCodeGenFolder,...
-    'createDir', true)
+    'createDir', true);
 
-% a variable to indicate where to place the logs for pipeline, if this
-% value is changed please ensure to change the variable in gitlab-ci.yml
-% file as this variable is used to store the logs as an artifact in verify,
-% build, test stages
-path = './Code';
-save ./Code/logsPath path;
-load(fullfile('Code','logsPath.mat'),'path');
-if ~exist(fullfile(path, 'logs'), 'dir')
-    mkdir(fullfile(path,'logs'));
+% Set path for logs
+logsPath = fullfile(projectRoot, 'Code', 'logs');
+save(fullfile('Code', 'logsPath.mat'), 'logsPath');
+
+% Create logs directory if it doesn't exist
+if ~exist(logsPath, 'dir')
+    mkdir(logsPath);
 end
 
 pauseTime = 1.5;
