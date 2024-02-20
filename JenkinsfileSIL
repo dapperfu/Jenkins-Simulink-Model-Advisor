@@ -1,0 +1,30 @@
+pipeline {
+  agent {
+        label 'WinLocalagent'
+    }
+  stages {
+    stage('Build') {
+      steps {
+        runMATLABCommand 'run(\'CruiseControlModeBuild\')'
+      }
+    }
+
+    stage('Artifact Management') {
+      parallel {
+        stage('Archive Binaries') {
+          steps {
+            archiveArtifacts(caseSensitive: true, fingerprint: true, artifacts: '*.elf, *.hex, *.c, *.h', allowEmptyArchive: true)
+          }
+        }
+
+        stage('Archive Build Source') {
+          steps {
+            archiveArtifacts '*_ert_rtw/**/*'
+          }
+        }
+
+      }
+    }
+
+  }
+}

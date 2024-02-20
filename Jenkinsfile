@@ -1,5 +1,7 @@
 pipeline {
-  agent any
+  agent {
+        label 'WinLocalagent'
+    }
   stages {
     stage('Run Model Advisor') {
       parallel {
@@ -22,13 +24,13 @@ pipeline {
       parallel {
         stage('Archive Artifacts') {
           steps {
-            archiveArtifacts(artifacts: 'docs/index.html, embedded_coder_fixedstep_multirate.xml', fingerprint: true)
+            archiveArtifacts(artifacts: 'docs/index.html, CruiseControlMode.xml', fingerprint: true)
           }
         }
 
         stage('Archive JUnit Artifacts') {
           steps {
-            junit(testResults: 'embedded_coder_fixedstep_multirate.xml', checksName: 'JUnit test results', healthScaleFactor: 1, allowEmptyResults: true, skipPublishingChecks: true)
+            junit(testResults: 'CruiseControlMode.xml', checksName: 'JUnit test results', healthScaleFactor: 1, allowEmptyResults: true, skipPublishingChecks: true)
           }
         }
 
