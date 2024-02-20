@@ -1,12 +1,12 @@
 classdef modelBuildAction
     % MODELBUILDACTION Assists in building models and managing artifacts
-    
+
     properties
         prj
         cfg
         modelName
     end
-    
+
     methods
         function obj = modelBuildAction(modelName)
             % Constructor
@@ -17,23 +17,23 @@ classdef modelBuildAction
             obj.prj = matlab.project.currentProject;
             obj.cfg = Simulink.fileGenControl('getConfig');
         end
-        
+
         function build(obj)
             % Build method
-            
+
             % Change directory to code generation folder
             cd(obj.cfg.CodeGenFolder);
 
             try
                 % Load the model
                 load_system(obj.modelName)
-                
+
                 % Build based on the system target file
                 cs = getActiveConfigSet(obj.modelName);
                 sysTarg = get_param(cs, 'SystemTargetFile');
                 switch sysTarg
                     case {'grt.tlc', 'rsim.tlc'}
-                        slbuild(obj.modelName); 
+                        slbuild(obj.modelName);
                     case 'ert.tlc'
                         rtwbuild(obj.modelName);
                     otherwise
@@ -60,7 +60,7 @@ classdef modelBuildAction
                 s = struct('Result','Passed','Path', strrep(fullfile('..', 'build', [obj.modelName '_codegen_rpt.html']), filesep,[filesep filesep]));
                 fprintf(fileID, jsonencode(s));
                 fclose(fileID);
-                
+
                 disp('Model build successful.');
             catch ME
                 % Log any errors
@@ -69,7 +69,7 @@ classdef modelBuildAction
                 s = struct('Result','Failed','Path', 'No CodeGen report generated');
                 fprintf(fileID, jsonencode(s));
                 fclose(fileID);
-                
+
                 % Re-throw the error
                 rethrow(ME);
             end
